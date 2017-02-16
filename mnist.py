@@ -23,7 +23,7 @@ class mnistClassifier():
 
         #MaxPool layer
         self.model.add(MaxPooling2D(pool_size=pool_size))
-        self.model.add(Dropout(0.25))
+        #self.model.add(Dropout(0.25))
 
         #Fully connected
         self.model.add(Flatten())

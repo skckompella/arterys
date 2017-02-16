@@ -1,4 +1,6 @@
-import numpy as np
+'''
+Code adapted from https://github.com/fchollet/keras/blob/master/examples/mnist_cnn.py
+'''
 
 from keras.datasets import mnist
 from keras.utils import np_utils
@@ -62,4 +64,6 @@ model = mnistClassifier(num_classes, num_filters, kernel_size, input_shape, pool
 
 model.fit(X_train, Y_train, X_val, Y_val, batch_size, num_epoch)
 
-model.eval(X_test, Y_test, 1)
+score = model.eval(X_test, Y_test, 1)
+print('Test score:', score[0])
+print('Test accuracy:', score[1])
