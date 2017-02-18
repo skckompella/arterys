@@ -1,8 +1,7 @@
 #Arterys Challenge
-**Model Overview:**
+##Model Overview:
 
-**Part 1** 
-*Analysis*
+##Part 1: Analysis
 
 
 Q: What is your test set error rate?
@@ -18,8 +17,7 @@ Q: Based only on information gathered in the first epoch of training, do you thi
 Q: Besides training for a longer time, what would you do to improve accuracy?
 
 
-**Part 2**
-*Analysis on noisy data*
+##Part 2: Analysis on noisy data
 
 
 Q: What are the implications of the dependence of accuracy on noise if you were to deploy a production classifier? How much noise do you think a production classifier could tolerate?
@@ -29,8 +27,7 @@ Q: Do you think that Gaussian noise is an appropriate model for real-world noise
 Q: Is the accuracy of certain classes affected more by image noise than others? Why?
 
 
-**Part 3**
-*Analysis on noisy labels*
+Part 3: Analysis on noisy labels
 
 
 Q: How important are accurate training labels to classifier accuracy?
