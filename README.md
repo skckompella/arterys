@@ -6,6 +6,7 @@
 
 
 Q: What is your test set error rate?
+
 A: Test error rate: 1.54%
 
 Q: What is the test set error rate for each class? Are some classes more challenging than others to distinguish from each other? Why? 
