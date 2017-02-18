@@ -30,7 +30,7 @@ Q: Do you think that Gaussian noise is an appropriate model for real-world noise
 Q: Is the accuracy of certain classes affected more by image noise than others? Why?
 
 
-Part 3: Analysis on noisy labels
+##Part 3: Analysis on noisy labels
 
 
 Q: How important are accurate training labels to classifier accuracy?
