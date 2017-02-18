@@ -5,14 +5,17 @@
 
 
 Q: What is your test set error rate?
+
 A: Test error rate: 0.0154
 
 Q: What is the test set error rate for each class? Are some classes more challenging than others to distinguish from each other? Why?
+
 A: [ 0.9946  0.9965  0.9931  0.9941  0.9951  0.9954  0.9948  0.9918  0.9917 0.9915]
 
 
 Q: Based only on information gathered in the first epoch of training, do you think that the model would benefit from more training time? Why?
-More training seems unnecessary. It can be seen that the network is already giving us close to perfect accuracy and any more training will give us only marginal improvements at best and could lead to overfitting the data. However, I would still run it for a couple more epochs to see if I am gaining any significant value (like having >99.5% accuracy for all classes)
+
+A: More training seems unnecessary. It can be seen that the network is already giving us close to perfect accuracy and any more training will give us only marginal improvements at best and could lead to overfitting the data. However, I would still run it for a couple more epochs to see if I am gaining any significant value (like having >99.5% accuracy for all classes)
 
 Q: Besides training for a longer time, what would you do to improve accuracy?
 
