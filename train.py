@@ -6,22 +6,17 @@ from keras.datasets import mnist
 from keras.utils import np_utils
 from keras import backend as K
 
-from mnist import mnistClassifier
+from mnist import MnistClassifier
+import numpy as np
 
 
 
 batch_size = 128
 num_classes = 10
-num_epoch = 3
+num_epoch = 1
 
 # input image dimensions
 img_rows, img_cols = 28, 28
-# number of convolutional filters to use
-num_filters = 32
-# size of pooling area for max pooling
-pool_size = (2, 2)
-# convolution kernel size
-kernel_size = (3, 3)
 
 # the data, shuffled and split between train and test sets
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
@@ -60,10 +55,17 @@ print('Validation samples: ', X_val.shape[0])
 print('Test samples: ', X_test.shape[0])
 
 
-model = mnistClassifier(num_classes, num_filters, kernel_size, input_shape, pool_size)
+model = MnistClassifier(num_classes, input_shape)
 
 model.fit(X_train, Y_train, X_val, Y_val, batch_size, num_epoch)
 
 score = model.eval(X_test, Y_test, 1)
 print('Test score:', score[0])
 print('Test accuracy:', score[1])
+
+pred_prob = model.eval_by_class(X_test)
+preds = np.zeros_like(pred_prob)
+preds[np.arange(len(pred_prob)), pred_prob.argmax(1)] = 1
+print np.sum((preds == Y_test), axis=0)
+
+
