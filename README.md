@@ -15,14 +15,16 @@ A: Test error rate: 1.62%
 **Q: What is the test set error rate for each class? Are some classes more challenging than others to distinguish from each other? Why?**
 
 A: [ 99.75  99.76  99.7   99.61  99.8   99.7   99.8   99.52  99.61  99.49]
+
 With numbers like these, it is hard to say if any class was challenging at all. It is possible that the a more complicated task would give us a better opportunity to analyze. 
 
 **Q: Based only on information gathered in the first epoch of training, do you think that the model would benefit from more training time? Why?**
 
 A: I would run it for at least a couple more epochs to see if I can obtain any improvement in validation accuracy . Its impossible to judge from one epoch alone. Generally, more training will surely be useful. However, for a dataset like MNIST, we can say it is "good enough" with about 99% accuracy unless we are trying to break some record. 
 
-**Q: Besides training for a longer time, what would you do to improve accuracy?
-Increasing width of each layer, adding more convolution layers and fully connected layers, try different optimizers (adam gave me better accuracy than adagrad) etc.**
+**Q: Besides training for a longer time, what would you do to improve accuracy?.**
+
+A: Increasing width of each layer, adding more convolution layers and fully connected layers, try different optimizers (adam gave me better accuracy than adagrad) etc.
 
 ##Part 2: Analysis on noisy data
 
@@ -32,6 +34,8 @@ Increasing width of each layer, adding more convolution layers and fully connect
 A: 
 
 **Q: Do you think that Gaussian noise is an appropriate model for real-world noise if the characters were acquired by standard digital photography? If so, in what situations? How would you compensate for it?**
+
+A: Yes. Most common sources of noise is variation in illumination. This follows a Gaussian distribution. Gaussian noise can also creep in due to high camera temperature and amplification of certain channels in the image. A possible way to compensate for it is to preprocess the images by smoothing the image with a Gaussian filter. It should also be noted that the convolution layers **can** learn to smooth  the image.  
 
 **Q: Is the accuracy of certain classes affected more by image noise than others? Why?**
 
