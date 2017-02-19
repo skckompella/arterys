@@ -1,21 +1,22 @@
 #Arterys Challenge
 ##Model Overview:
+My model is adapted from LeNet5. 
+
 
 ##Part 1: Analysis
 
 
 Q: What is your test set error rate?
 
-A: Test error rate: 0.0154
+A: Test error rate: 1.62%
 
 Q: What is the test set error rate for each class? Are some classes more challenging than others to distinguish from each other? Why?
 
-A: [ 0.9946  0.9965  0.9931  0.9941  0.9951  0.9954  0.9948  0.9918  0.9917 0.9915]
-
+A: [ 99.75  99.76  99.7   99.61  99.8   99.7   99.8   99.52  99.61  99.49]
 
 Q: Based only on information gathered in the first epoch of training, do you think that the model would benefit from more training time? Why?
 
-A: More training seems unnecessary. It can be seen that the network is already giving us close to perfect accuracy and any more training will give us only marginal improvements at best and could lead to overfitting the data. However, I would still run it for a couple more epochs to see if I am gaining any significant value (like having >99.5% accuracy for all classes)
+A: I would run it for at least a couple more epochs to see if I am actually seeing any improvement in accuracy. Its impossible to judge from epoch alone. Generally, more training will surely be useful (albeit a marginal benefit on a dataset like MNIST). 
 
 Q: Besides training for a longer time, what would you do to improve accuracy?
 
