@@ -91,6 +91,7 @@ Modifying model to make it robust to label noise:
 * Also, there can be "outlier" noise - where the labels do not belong to any of the classes in ground truth (for ex: labelling a cow as a bull even though there are no bulls in the ground truth). In this scenario, we can quantify it by the percentage of outlier labels to total labels. 
 
 **Q: If your real-world data had both image noise and label noise, which would you be more concerned about? Which is easier to compensate for?**
+
 I would be more concerned about label noise. Clearly even little amount of label noise can affect the classification accuracy badly. However, compensating for image noise is much easier. Given that we can do denoising both during preprocessing as well as in the convolution layers (possibly), image noise can be easily handled. 
 
 ![](img/acc_w_noise.png "Accuracy with noise")
