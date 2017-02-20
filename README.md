@@ -62,7 +62,7 @@ A: From the graph below, it is evident that "1" is the most robust to noise and 
 
 A: The following graph shows the effect of label noise (5% of training data having random labels) for 5 different initializations
 
-![](img/recall_w_lnoise.png "Per class Recall with label noise")
+![](img/acc_w_lnoise.png "Per class Recall with label noise")
 
 
 **Q: How would you compensate for label noise? Assume you have a large budget available but you want to use it as efficiently as possible.**
