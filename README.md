@@ -23,7 +23,7 @@ A: The following is the recall score per class:
 
 [ 0.99591837  0.98942731  0.97965116  0.97920792  0.97759674  0.9854260  0.97599165  0.98249027  0.97741273  0.97224975]
 
-!(img/recall.png "Recall score")
+![](img/recall.png "Recall score")
 
 
 **Q: Based only on information gathered in the first epoch of training, do you think that the model would benefit from more training time? Why?**
