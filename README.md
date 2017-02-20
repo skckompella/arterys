@@ -1,11 +1,16 @@
 #Arterys Challenge
+##Files Overview
+* mnist.py: Contains the CNN model
+* data_utils.py: Contains code for data preprocessing
+* run.ipynb: IPython notebook with experiments for this coding challenge
+
 ##Model Overview:
-My model is adapted from LeNet5. 
+The model is adapted from LeNet5 with minor differences. 
 
 *Note: Due to some issues with my virtualenv I did all my testing on a Theano backend. However, it should still work with TensorFlow backend as well.*
 
 
-##Part 1: Analysis
+##Part 1: Analysis on original data
 
 
 **Q: What is your test set error rate?**
@@ -15,8 +20,12 @@ A: Test error rate: 0.0185
 **Q: What is the test set error rate for each class? Are some classes more challenging than others to distinguish from each other? Why?**
 
 A: The following is the recall score per class: 
+
 [ 0.99591837  0.98942731  0.97965116  0.97920792  0.97759674  0.9854260  0.97599165  0.98249027  0.97741273  0.97224975]
 
+![](img/recall.png "Per class Recall score")
+
+It is evident that classes 2, 3, 4, 6, 8, 9 are slightly more challenging compared to the rest. This could be due to ambiguity due to handwriting (for example: some times 4 and 6 look alike), noise in images and bad clarity of the image scan. 
 
 **Q: Based only on information gathered in the first epoch of training, do you think that the model would benefit from more training time? Why?**
 
@@ -24,14 +33,16 @@ A: I would run it for at least a couple more epochs to see if I can obtain any i
 
 **Q: Besides training for a longer time, what would you do to improve accuracy?.**
 
-A: Increasing width of each layer, adding more convolution layers and fully connected layers, try different optimizers (adam gave me better accuracy than adagrad) etc.
+A: Increasing width of each layer, adding more convolution layers (adding a second convolution layer in my model gave me ~1% jump in accuracy) and fully connected layers, try different optimizers (adam gave me better accuracy than adagrad), vary sizes of filters etc.
 
 ##Part 2: Analysis on noisy data
 
 
 **Q: What are the implications of the dependence of accuracy on noise if you were to deploy a production classifier? How much noise do you think a production classifier could tolerate?**
 
-A: 
+A: From the graph below, it is clear that accuracy decreases almost linearly with increase in standard deviation. Given that in a production system, there could be other types of noise, it can be safely assumed that a noise levels with a standard deviation of 8 is totally unacceptable. A std deviation less than 2, which gives an accuracy greater than 80%, is the most acceptable in my opinion 
+
+![](img/acc_w_noise.png "Accuracy with noise")
 
 **Q: Do you think that Gaussian noise is an appropriate model for real-world noise if the characters were acquired by standard digital photography? If so, in what situations? How would you compensate for it?**
 
@@ -39,11 +50,17 @@ A: Yes. Most common sources of noise is variation in illumination. This follows 
 
 **Q: Is the accuracy of certain classes affected more by image noise than others? Why?**
 
+A: From the graph below, it is evident that "1" is the most robust to noise and "5" is the least robust to noise followed by "9", "4', "7", "8". It is pretty logical to expect this behavior for "9" given that "9" was the hardest to recognize even without noise. Adding noise distorts the digit and some time occludes portions of it, making it look like other number numbers. With very high noise levels (std deviation > 4), the image is almost unrecognizable and I assume that the network is learning some patterns in the noisy images that is not recognizable to the human eye. 
+
+![](img/recall_w_noise.png "Per class Recall with noise")
+
 
 ##Part 3: Analysis on noisy labels
 
 
 **Q: How important are accurate training labels to classifier accuracy?**
+
+A: The following graph shows the effect of label noise (5% of training data having random labels) for 5 different initializations
 
 **Q: How would you compensate for label noise? Assume you have a large budget available but you want to use it as efficiently as possible.**
 
