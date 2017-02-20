@@ -52,7 +52,7 @@ A: Yes. Most common sources of noise is variation in illumination. This follows 
 
 A: From the graph below, it is evident that "1" is the most robust to noise and "5" is the least robust to noise followed by "9", "4', "7", "8". It is pretty logical to expect this behavior for "9" given that "9" was the hardest to recognize even without noise. Adding noise distorts the digit and some time occludes portions of it, making it look like other number numbers. With very high noise levels (std deviation > 4), the image is almost unrecognizable and I assume that the network is learning some patterns in the noisy images that is not recognizable to the human eye. 
 
-![](img/recall_w_noise.png "Per class Recall with noise")
+![](img/recall_w_noise.png "Per class Recall with image noise")
 
 
 ##Part 3: Analysis on noisy labels
@@ -61,6 +61,9 @@ A: From the graph below, it is evident that "1" is the most robust to noise and 
 **Q: How important are accurate training labels to classifier accuracy?**
 
 A: The following graph shows the effect of label noise (5% of training data having random labels) for 5 different initializations
+
+![](img/recall_w_lnoise.png "Per class Recall with label noise")
+
 
 **Q: How would you compensate for label noise? Assume you have a large budget available but you want to use it as efficiently as possible.**
 
