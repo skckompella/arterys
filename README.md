@@ -67,6 +67,15 @@ A: The following graph shows the effect of label noise (5% of training data havi
 
 **Q: How would you compensate for label noise? Assume you have a large budget available but you want to use it as efficiently as possible.**
 
+A: Possible ways to handle label noise:
+* If we know which portion of data has noisy labels, we can exclude it from our training altogether
+* Say we know what percentage (for ex: 10%) of our labels are noisy but do not know which ones, we can split our training data k-fold (like what we do for cross validation) (if 10% is noisy, k=10) and train on different portions of the data (leaving out 1 fold each time). The training set that gives us the best accuracy can be kept and the rest discarded.
+* If we do not know the percentage of labels that are noisy, we will have to split the data with varying values of k and use the value that gives us the best accuracy.
+* If the noisy labels are randomly spread across the dataset, we can pick data randomly for training. However this may not be feasible given that it is not deterministic. 
+* Adding some sort of Label smoothing
+  - Label smoothing to predictions (modifying loss function)
+  - Label smoothing to ground truth - https://arxiv.org/pdf/1512.00567.pdf
+*Note: I must admit, I have not tried handling noisy labels myself. There seems to be a lot of research to handle this problem. This above point is through cursory reading only. *
 
 **Q: How would you quantify the amount of label noise if you had a noisy data set?**
 
