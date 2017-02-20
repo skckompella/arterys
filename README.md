@@ -10,13 +10,13 @@ My model is adapted from LeNet5.
 
 **Q: What is your test set error rate?**
 
-A: Test error rate: 1.62%
+A: Test error rate: 0.0185
 
 **Q: What is the test set error rate for each class? Are some classes more challenging than others to distinguish from each other? Why?**
 
-A: [ 99.75  99.76  99.7   99.61  99.8   99.7   99.8   99.52  99.61  99.49]
+A: The following is the recall score per class: 
+[ 0.99591837  0.98942731  0.97965116  0.97920792  0.97759674  0.9854260  0.97599165  0.98249027  0.97741273  0.97224975]
 
-With numbers like these, it is hard to say if any class was challenging at all. It is possible that the a more complicated task would give us a better opportunity to analyze. 
 
 **Q: Based only on information gathered in the first epoch of training, do you think that the model would benefit from more training time? Why?**
 
