@@ -40,7 +40,7 @@ A: Increasing width of each layer, adding more convolution layers (adding a seco
 
 **Q: What are the implications of the dependence of accuracy on noise if you were to deploy a production classifier? How much noise do you think a production classifier could tolerate?**
 
-A: 
+A: From the graph below, it is clear that accuracy decreases almost linearly with increase in standard deviation. Given that in a production system, there could be other types of noise, it can be safely assumed that a noise levels with a standard deviation of 8 is totally unacceptable. A std deviation less than 2, which gives an accuracy greater than 80%, is the most acceptable in my opinion 
 
 ![](img/acc_w_noise.png "Accuracy with noise")
 
