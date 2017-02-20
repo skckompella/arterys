@@ -60,6 +60,8 @@ A: From the graph below, it is evident that "1" is the most robust to noise and 
 
 **Q: How important are accurate training labels to classifier accuracy?**
 
+A: The following graph shows the effect of label noise (5% of training data having random labels) for 5 different initializations
+
 **Q: How would you compensate for label noise? Assume you have a large budget available but you want to use it as efficiently as possible.**
 
 
