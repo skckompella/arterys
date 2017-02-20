@@ -10,7 +10,7 @@ The model is adapted from LeNet5 with minor differences.
 *Note: Due to some issues with my virtualenv I did all my testing on a Theano backend. However, it should still work with TensorFlow backend as well.*
 
 
-##Part 1: Analysis
+##Part 1: Analysis on original data
 
 
 **Q: What is your test set error rate?**
@@ -23,8 +23,9 @@ A: The following is the recall score per class:
 
 [ 0.99591837  0.98942731  0.97965116  0.97920792  0.97759674  0.9854260  0.97599165  0.98249027  0.97741273  0.97224975]
 
-![](img/recall.png "Recall score")
+![](img/recall.png "Per class Recall score")
 
+It is evident that classes 2, 3, 4, 6, 8, 9 are slightly more challenging compared to the rest. This could be due to ambiguity due to handwriting (for example: some times 4 and 6 look alike), noise in images and bad clarity of the image scan. 
 
 **Q: Based only on information gathered in the first epoch of training, do you think that the model would benefit from more training time? Why?**
 
@@ -32,7 +33,7 @@ A: I would run it for at least a couple more epochs to see if I can obtain any i
 
 **Q: Besides training for a longer time, what would you do to improve accuracy?.**
 
-A: Increasing width of each layer, adding more convolution layers and fully connected layers, try different optimizers (adam gave me better accuracy than adagrad) etc.
+A: Increasing width of each layer, adding more convolution layers (adding a second convolution layer in my model gave me ~1% jump in accuracy) and fully connected layers, try different optimizers (adam gave me better accuracy than adagrad), vary sizes of filters etc.
 
 ##Part 2: Analysis on noisy data
 
@@ -40,6 +41,8 @@ A: Increasing width of each layer, adding more convolution layers and fully conn
 **Q: What are the implications of the dependence of accuracy on noise if you were to deploy a production classifier? How much noise do you think a production classifier could tolerate?**
 
 A: 
+
+![](img/acc_w_noise.png "Accuracy with noise")
 
 **Q: Do you think that Gaussian noise is an appropriate model for real-world noise if the characters were acquired by standard digital photography? If so, in what situations? How would you compensate for it?**
 
