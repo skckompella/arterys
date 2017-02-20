@@ -1,6 +1,11 @@
 #Arterys Challenge
+##Files Overview
+* mnist.py: Contains the CNN model
+* data_utils.py: Contains code for data preprocessing
+* run.ipynb: IPython notebook with experiments for this coding challenge
+
 ##Model Overview:
-My model is adapted from LeNet5. 
+The model is adapted from LeNet5 with minor differences. 
 
 *Note: Due to some issues with my virtualenv I did all my testing on a Theano backend. However, it should still work with TensorFlow backend as well.*
 
@@ -15,7 +20,10 @@ A: Test error rate: 0.0185
 **Q: What is the test set error rate for each class? Are some classes more challenging than others to distinguish from each other? Why?**
 
 A: The following is the recall score per class: 
+
 [ 0.99591837  0.98942731  0.97965116  0.97920792  0.97759674  0.9854260  0.97599165  0.98249027  0.97741273  0.97224975]
+
+!(img/recall.png "Recall score")
 
 
 **Q: Based only on information gathered in the first epoch of training, do you think that the model would benefit from more training time? Why?**
