@@ -50,6 +50,8 @@ A: Yes. Most common sources of noise is variation in illumination. This follows 
 
 **Q: Is the accuracy of certain classes affected more by image noise than others? Why?**
 
+![](img/recall_w_noise.png "Per class Recall with noise")
+
 
 ##Part 3: Analysis on noisy labels
 
