@@ -75,7 +75,11 @@ A: Possible ways to handle label noise:
 * Adding some sort of Label smoothing
   - Label smoothing to predictions (modifying loss function)
   - Label smoothing to ground truth - https://arxiv.org/pdf/1512.00567.pdf
+  
 *Note: I must admit, I have not tried handling noisy labels myself. There seems to be a lot of research to handle this problem. This above point is through cursory reading only. *
+
+* If we have a LOT of money, we can pay a bunch of people to verify the labels in the dataset :) 
+
 
 **Q: How would you quantify the amount of label noise if you had a noisy data set?**
 
