@@ -52,7 +52,7 @@ A: Yes. Most common sources of noise is variation in illumination. This follows 
 
 A: From the graph below, it is evident that "1" is the most robust to noise and "5" is the least robust to noise followed by "9", "4', "7", "8". It is pretty logical to expect this behavior for "9" given that "9" was the hardest to recognize even without noise. Adding noise distorts the digit and some time occludes portions of it, making it look like other number numbers. With very high noise levels (std deviation > 4), the image is almost unrecognizable and I assume that the network is learning some patterns in the noisy images that is not recognizable to the human eye. 
 
-![](img/recall_w_noise.png "Per class Recall with noise")
+![](img/recall_w_noise.png "Per class Recall with image noise")
 
 
 ##Part 3: Analysis on noisy labels
@@ -60,11 +60,33 @@ A: From the graph below, it is evident that "1" is the most robust to noise and 
 
 **Q: How important are accurate training labels to classifier accuracy?**
 
-A: The following graph shows the effect of label noise (5% of training data having random labels) for 5 different initializations
+A: The following graph shows the effect of label noise (5% of training data having random labels) for 5 different initializations. It is evident that label noise (even for just 5% of the data) adversly affects classification accuracy. 
+
+![](img/acc_w_lnoise.png "Accuracy with label noise")
+
 
 **Q: How would you compensate for label noise? Assume you have a large budget available but you want to use it as efficiently as possible.**
+
+A: Possible ways to handle label noise:
+* If we know which portion of data has noisy labels, we can exclude it from our training altogether
+* Say we know what percentage (for ex: 10%) of our labels are noisy but do not know which ones, we can split our training data k-fold (like what we do for cross validation) (if 10% is noisy, k=10) and train on different portions of the data (leaving out 1 fold each time). The training set that gives us the best accuracy can be kept and the rest discarded.
+* If we do not know the percentage of labels that are noisy, we will have to split the data with varying values of k and use the value that gives us the best accuracy.
+* If the noisy labels are randomly spread across the dataset, we can have some sort of "Label dropout" to probabilistically drop a few examples during trainig
+* Adding some sort of Label smoothing
+  - Label smoothing to predictions (modifying loss function)
+  - Label smoothing to ground truth - https://arxiv.org/pdf/1512.00567.pdf
+  
+*Note: I must admit, I have not tried handling noisy labels myself. There seems to be a lot of research to handle this problem. This above point is through cursory reading only. *
+
+* If we have a LOT of money, we can pay a bunch of people to verify the labels in the dataset :) 
 
 
 **Q: How would you quantify the amount of label noise if you had a noisy data set?**
 
 **Q: If your real-world data had both image noise and label noise, which would you be more concerned about? Which is easier to compensate for?**
+I would be more concerned about label noise. Clearly even little amount of label noise can affect the classification accuracy badly. However, compensating for image noise is much easier. Given that we can do denoising both during preprocessing as well as in the convolution layers (possibly), image noise can be easily handled. 
+
+![](img/acc_w_noise.png "Accuracy with noise")
+
+
+![](img/acc_w_lnoise.png "Accuracy with label noise")
