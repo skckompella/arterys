@@ -1,4 +1,3 @@
-#Arterys Challenge
 ##Files Overview
 * mnist.py: Contains the CNN model
 * data_utils.py: Contains code for data preprocessing
